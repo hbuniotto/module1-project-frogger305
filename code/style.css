@@ -1,0 +1,42 @@
+body {
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+}
+
+body button {
+    font-size: 24px;
+    background-color: #DD4A54;
+    color: #CDD820;
+    padding: 20px 30px;
+    border: 0;
+    box-shadow: 0;
+    border-radius: 7px;
+    margin-bottom: 20px;
+}
+
+#game-board {
+    float: left;
+    padding: 20px 0px;
+    padding-top: 10px;
+}
+
+.game-intro {
+    float: right;
+    padding-top: 10px;
+}
+
+.game-intro p {
+    font-size: 18px;
+    font-family: "Arial";
+}
+
+.logo-img {
+    width: 150px;
+}
+
+.arrows-img {
+    width: 150px;
+}
