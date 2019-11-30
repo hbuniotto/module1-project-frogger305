@@ -1,6 +1,12 @@
+header {
+    display: flex;
+    width: 1000px;
+    text-align: center;
+}
+
 body {
     display: flex;
-    padding: 0;
+    padding: 10;
     text-align: center;
     flex-direction: row;
     padding: 2c0px;
@@ -19,6 +25,7 @@ body button {
 
 #game-board {
     float: left;
+    width: 800px;
     padding: 20px 0px;
     padding-top: 10px;
 }
@@ -26,6 +33,20 @@ body button {
 .game-intro {
     float: right;
     padding-top: 10px;
+    width: 220px;
+    margin-top: 100px;
+    align-content: right;
+
+}
+
+#game-logo {
+    display: flex;
+    width: 300px;
+}
+
+#game-menu {
+    display: flex;
+    width: 300px;
 }
 
 .game-intro p {

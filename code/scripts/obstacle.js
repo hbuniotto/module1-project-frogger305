@@ -21,7 +21,8 @@ class Obstacle extends Component {
     }
 
     move() {
-        if (Math.floor(Math.random() % 2) === 0) {
+        if (10 === 10)
+            (Math.floor(Math.random() % 2) === 0) {
             this.y += 7;
         }
     }
