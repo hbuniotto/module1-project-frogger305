@@ -1,9 +1,9 @@
 body {
+    display: flex;
     padding: 0;
     text-align: center;
-    display: flex;
     flex-direction: row;
-    padding: 20px;
+    padding: 2c0px;
 }
 
 body button {
@@ -39,4 +39,4 @@ body button {
 
 .arrows-img {
     width: 150px;
-}
+};
