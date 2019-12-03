@@ -19,28 +19,28 @@ class Player extends Component {
                         break;
                     case 39:
                     case 83:
-                        if (this.x <= 490 - this.width) this.x += 20;
+                        if (this.x <= 1350 - this.width) this.x += 20;
                         break;
                     case 40:
                     case 68:
-                        if (this.y <= 690 - this.height) this.y += 20;
+                        if (this.y <= 60 - this.height) this.y += 20;
                         break;
                 }
             }
         };
     }
 
-    crashCollision(ele) {
-        if (
-            (this.y + 20 < ele.y + ele.height &&
-                this.x + 15 < ele.x + ele.width &&
-                this.x + this.width - 15 > ele.x) ||
-            (ele.y + ele.height > this.y &&
-                ele.x < this.x + this.width &&
-                this.x < elem.x + ele.width)
-        ) {
-            setTimeout(() => alert("PENDEEEJO...!"), 5);
-            window.location.reload();
-        }
-    }
+    // crashCollision(ele) {
+    //     if (
+    //         (this.y + 20 < ele.y + ele.height &&
+    //             this.x + 15 < ele.x + ele.width &&
+    //             this.x + this.width - 15 > ele.x) ||
+    //         (ele.y + ele.height > this.y &&
+    //             ele.x < this.x + this.width &&
+    //             this.x < ele.x + ele.width)
+    //     ) {
+    //         setTimeout(() => alert("PENDEEEJO...!"), 5);
+    //         window.location.reload();
+    //     }
+    // }
 }

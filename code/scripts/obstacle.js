@@ -9,7 +9,7 @@ class Obstacle extends Component {
         this.img = new Image();
     }
 
-    draw() {
+    draw() { 
         this.img.src = "./images/redCar.png";
         this.game.ctx.drawImage(
             this.img,
@@ -21,8 +21,7 @@ class Obstacle extends Component {
     }
 
     move() {
-        if (10 === 10)
-            (Math.floor(Math.random() % 2) === 0) {
+        if (10 === 10 && Math.floor(Math.random() % 2) === 0 ) {
             this.y += 7;
         }
     }

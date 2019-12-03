@@ -1,33 +1,55 @@
-header {
+
+nav {
     display: flex;
-    width: 1000px;
-    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3vw;
+    height: 5vw;
+    border-bottom: 2px solid #DD4A54;
+    position: fixed;
+    width: 89vw;
+    background-color: white;
+    top: 5;
+}
+    
+nav > img {
+    width: 8vw;
+    margin-bottom: 15px;
+}
+
+nav > ul > li {
+    background-color: rgb(49, 68, 88);
+    color: whitesmoke;
+    font: verdana;
+    font-size: 20px;
+    border-radius: 25px;
+    padding: 10px 25px 10px 25px;
+    border: 2;
+    margin-bottom: 15px;
+
+}
+    
+nav > ul {
+    display: flex;
+    width: 12vw;
+    /* justify-content: space-between; */
+    align-items: left;
 }
 
 body {
-    display: flex;
+    /* display: flex; */
+    /* flex-direction: row; */
     padding: 10;
     text-align: center;
-    flex-direction: row;
-    padding: 2c0px;
+    padding: 10px;
 }
 
-body button {
-    font-size: 24px;
-    background-color: #DD4A54;
-    color: #CDD820;
-    padding: 20px 30px;
-    border: 0;
-    box-shadow: 0;
-    border-radius: 7px;
-    margin-bottom: 20px;
-}
 
 #game-board {
-    float: left;
+    /* float: left; */
     width: 800px;
-    padding: 20px 0px;
-    padding-top: 10px;
+    padding-top: 80px;
+    /* margin-left: 10px; */
 }
 
 .game-intro {
@@ -39,16 +61,6 @@ body button {
 
 }
 
-#game-logo {
-    display: flex;
-    width: 300px;
-}
-
-#game-menu {
-    display: flex;
-    width: 300px;
-}
-
 .game-intro p {
     font-size: 18px;
     font-family: "Arial";
@@ -57,7 +69,3 @@ body button {
 .logo-img {
     width: 150px;
 }
-
-.arrows-img {
-    width: 150px;
-};
