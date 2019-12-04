@@ -9,21 +9,21 @@ class Player extends Component {
             if (possibleKeystrokes.includes(key)) {
                 event.preventDefault();
                 switch (key) {
-                    case 37:
+                    case 37: // LEFT
                     case 65:
-                        if (this.x >= 10) this.x -= 20;
+                        if (this.x >= 25) this.x -= 65;
                         break;
-                    case 38:
+                    case 38: // UP
                     case 87:
-                        if (this.y >= 10) this.y -= 20;
+                        if (this.y >= 5) this.y -= 65;
                         break;
-                    case 39:
+                    case 39: // RIGHT
                     case 83:
-                        if (this.x <= 1350 - this.width) this.x += 20;
+                        if (this.x <= 1310 - this.width) this.x += 65;
                         break;
-                    case 40:
+                    case 40: // DOWN
                     case 68:
-                        if (this.y <= 60 - this.height) this.y += 20;
+                        if (this.y <= 650 - this.height) this.y += 65;
                         break;
                 }
             }

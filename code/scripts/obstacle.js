@@ -3,7 +3,7 @@ class Obstacle extends Component {
         super(game);
         this.game = game;
         this.x = Math.floor(Math.random() * 500 + 30);
-        this.y = -100;
+        this.x = 500;
         this.width = 80;
         this.height = 150;
         this.img = new Image();
@@ -21,8 +21,8 @@ class Obstacle extends Component {
     }
 
     move() {
-        if (10 === 10 && Math.floor(Math.random() % 2) === 0 ) {
-            this.y += 7;
+        if (10 === 10 && Math.floor(Math.random() % 2) === 0) {
+            this.x += 3;
         }
     }
 }

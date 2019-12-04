@@ -2,7 +2,7 @@ class Game {
     constructor() {
         this.canvas = undefined;
         this.ctx = undefined;
-        this.car = new Player(this, 200, 475, 90, 140);
+        this.car = new Player(this, 655, 620, 40, 80); // ADJUST FROG POSITION AND SIZE
         this.obstacles = [];
         this.background = undefined;
         this.score = 0;
@@ -32,7 +32,7 @@ class Game {
                 for (let i = 0; i < this.obstacles.length; i++) {
                     // this.obstacles[i].move(); STOPPED GETTING ERROR
                     this.obstacles[i].draw();
-                    this.car.crashCollision(this.obstacles[i]);
+                    // this.car.crashCollision(this.obstacles[i]);
                     if (this.obstacles[i].y > 800) {
                         this.obstacles.splice(i, 1);
                     }
