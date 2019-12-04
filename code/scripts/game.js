@@ -63,7 +63,7 @@ class Game {
         }
     
         this.drawMainCharacters = function() {
-            this.car.drawComponent("./images/motorcycle.png");
+            this.car.drawComponent("./images/");
         }
     }
 }

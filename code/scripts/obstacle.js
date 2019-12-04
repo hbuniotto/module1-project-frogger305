@@ -2,7 +2,7 @@ class Obstacle extends Component {
     constructor(game) {
         super(game);
         this.game = game;
-        this.x = Math.floor(Math.random() * 500 + 30);
+        // this.x = Math.floor(Math.random() * 500 + 30);
         this.x = 500;
         this.width = 80;
         this.height = 150;

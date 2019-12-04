@@ -37,9 +37,16 @@ body {
     padding: 23px;
 }
 
+
+#start-background {
+    align-content: center;
+    margin-top: 200px;
+
+}
+
 #game-board {
     width: 1350px;
-    /* background-color: #DD4A54; */
+    background-color: #DD4A54;
     border: 2px solid #DD4A54; 
 }
 
