@@ -1,16 +1,16 @@
 class Obstacle extends Component {
-    constructor(game) {
+    constructor(game, y) {
         super(game);
         this.game = game;
-        // this.x = Math.floor(Math.random() * 500 + 30);
-        this.x = 500;
-        this.width = 80;
-        this.height = 150;
+        this.y = y;
+        this.x = -100; // SET MANUALLY TO LEFT CORNER
+        this.width = 100;
+        this.height = 50;
         this.img = new Image();
     }
 
-    draw() { 
-        this.img.src = "./images/redCar.png";
+    draw() {
+        this.img.src = "images/obstacle-lamborguini.png";
         this.game.ctx.drawImage(
             this.img,
             this.x,
@@ -21,8 +21,8 @@ class Obstacle extends Component {
     }
 
     move() {
-        if (10 === 10 && Math.floor(Math.random() % 2) === 0) {
-            this.x += 3;
+        if (10 === 10 && Math.floor(Math.random() % 1) === 0) {
+            this.x += 2;
         }
     }
 }

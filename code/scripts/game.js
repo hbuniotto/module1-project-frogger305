@@ -2,7 +2,7 @@ class Game {
     constructor() {
         this.canvas = undefined;
         this.ctx = undefined;
-        this.car = new Player(this, 655, 620, 40, 80); // ADJUST FROG POSITION AND SIZE
+        this.car = new Player(this, 625, 628, 70, 70); // ADJUST FROG POSITION AND SIZE
         this.obstacles = [];
         this.background = undefined;
         this.score = 0;
@@ -30,9 +30,9 @@ class Game {
                 this.drawMainCharacters();
                 this.car.move();
                 for (let i = 0; i < this.obstacles.length; i++) {
-                    // this.obstacles[i].move(); STOPPED GETTING ERROR
+                    this.obstacles[i].move(); 
                     this.obstacles[i].draw();
-                    // this.car.crashCollision(this.obstacles[i]);
+                    this.car.crashCollision(this.obstacles[i]);
                     if (this.obstacles[i].y > 800) {
                         this.obstacles.splice(i, 1);
                     }
@@ -41,14 +41,15 @@ class Game {
         }
         
         this.createObstacles = function() {
-            if (Math.floor(Math.random() * 25) % 2 === 0) {
-                this.obstacles.push(new Obstacle(this));
-                console.log("obstacle == ", this.obstacles);
+            const startingPositions = [40, 100, 155, 225, 280, 345, 400, 460, 520, 580];
+            if (Math.floor(Math.random() * 20) % 2 === 0) {
+                let startingPos = startingPositions[Math.floor(Math.random() * startingPositions.length)];
+                this.obstacles.push(new Obstacle(this, startingPos));
             }
     
             setTimeout(() => {
                 this.createObstacles();
-            }, 3000);
+            }, 300); // SETS THE AMOUNT OF TIME TO WAIT BETWEEN CREATION OF OBSTACLES
         }
         
         this.drawBackground = function() { // THIS WILL BE A ROAD BACKGROUND
@@ -63,7 +64,7 @@ class Game {
         }
     
         this.drawMainCharacters = function() {
-            this.car.drawComponent("./images/");
+            this.car.drawComponent("images/chicken.gif");
         }
     }
 }
