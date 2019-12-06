@@ -32,14 +32,14 @@ class Player extends Component {
 
     crashCollision(ele) {
         if (
-            (this.y +  < ele.y + ele.height &&
+            (this.y + 20 < ele.y + ele.height &&
                 this.x + 15 < ele.x + ele.width &&
                 this.x + this.width - 15 > ele.x) ||
             (ele.y + ele.height > this.y &&
                 ele.x < this.x + this.width &&
                 this.x < ele.x + ele.width)
         ) {
-            setTimeout(() => alert("PENDEEEJO...!"), 5);
+            setTimeout(() => alert("DEAD!"), 5);
             window.location.reload();
         }
     }
