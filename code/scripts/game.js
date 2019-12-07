@@ -2,7 +2,7 @@ class Game {
     constructor() {
         this.canvas = undefined;
         this.ctx = undefined;
-        this.car = new Player(this, 625, 628, 70, 70); // ADJUST FROG POSITION AND SIZE
+        this.chicken = new Player(this, 625, 628, 70, 70); // ADJUST FROG POSITION AND SIZE
         this.obstacles = [];
         this.background = undefined;
         this.score = 0;
@@ -28,12 +28,12 @@ class Game {
                 this.clear();
                 this.drawBackground();
                 this.drawMainCharacters();
-                this.car.move();
+                this.chicken.move();
                 for (let i = 0; i < this.obstacles.length; i++) {
                     this.obstacles[i].move(); 
                     this.obstacles[i].draw();
-                    this.car.crashCollision(this.obstacles[i]);
-                    if (this.obstacles[i].y > 800) {
+                    // this.chicken.crashCollision(this.obstacles[i]);
+                    if (this.obstacles[i].y > 700) {
                         this.obstacles.splice(i, 1);
                     }
                 }
@@ -49,7 +49,7 @@ class Game {
     
             setTimeout(() => {
                 this.createObstacles();
-            }, 300); // SETS THE AMOUNT OF TIME TO WAIT BETWEEN CREATION OF OBSTACLES
+            }, 100); // SETS THE AMOUNT OF TIME TO WAIT BETWEEN CREATION OF OBSTACLES
         }
         
         this.drawBackground = function() { // THIS WILL BE A ROAD BACKGROUND
@@ -58,13 +58,25 @@ class Game {
             this.ctx.drawImage( this.backgroundImg, this.x, this.y, this.width, this.height )
             // })
         }
+        
+        this.drawMainCharacters = function() {
+            this.chicken.drawComponent("images/chicken.gif");
+        }
+
+        this.checkCollision = function () {
+                let collisionRight = ((this.obstacles[i].x + chicken.width - 20 >= obstacles.x  ) && (chicken.x <= obstacles.x));
+                let collisionLeft = ((chicken.x + 20 <= obstacles.x + obstacles.width) && (chicken.x + chicken.width >= obstacles.x + obstacles.width));
+                let collisionTop = ((chicken.y + 20 <= obstacles.y + obstacles.height) && (chicken.y + chicken.height >= obstacles.y + obstacles.height));
+                let ccollisionBottom = ((chicken.y + chicken.height - 20 >= obstacles.y) && (chicken.y <= obstacles.y));
+                
+                if ((collisionRight || collisionLeft) && (collisionTop || ccollisionBottom)) 
+                // return true;
+                console.log ('crash')
+                return false;
+              }
 
         this.clear = function() {
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         }
-    
-        this.drawMainCharacters = function() {
-            this.car.drawComponent("images/chicken.gif");
-        }
     }
-}
+};

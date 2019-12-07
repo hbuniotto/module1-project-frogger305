@@ -3,7 +3,7 @@ class Obstacle extends Component {
         super(game);
         this.game = game;
         this.y = y;
-        this.x = -100; // SET MANUALLY TO LEFT CORNER
+        this.x = - 100; // SET MANUALLY TO LEFT CORNER
         this.width = 100;
         this.height = 50;
         this.img = new Image();
@@ -23,6 +23,7 @@ class Obstacle extends Component {
     move() {
         if (10 === 10 && Math.floor(Math.random() % 1) === 0) {
             this.x += 2;
+            // call function to check if collision
         }
     }
-}
+};

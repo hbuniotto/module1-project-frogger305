@@ -30,17 +30,17 @@ class Player extends Component {
         };
     }
 
-    crashCollision(ele) {
-        if (
-            (this.y + 20 < ele.y + ele.height &&
-                this.x + 15 < ele.x + ele.width &&
-                this.x + this.width - 15 > ele.x) ||
-            (ele.y + ele.height > this.y &&
-                ele.x < this.x + this.width &&
-                this.x < ele.x + ele.width)
-        ) {
-            setTimeout(() => alert("DEAD!"), 5);
-            window.location.reload();
-        }
-    }
+    // crashCollision(ele) {
+    //     if (
+    //         (this.y + 15 < ele.y + ele.height &&
+    //             this.x + 15 < ele.x + ele.width &&
+    //             this.x + this.width + 15 > ele.x) ||
+    //         (ele.y + ele.height > this.y &&
+    //             ele.x < this.x + this.width &&
+    //             this.x < ele.x + ele.width)
+    //     ) {
+    //         setTimeout(() => alert("DEAD!"), 0);
+    //         window.location.reload();
+    //     }
+    // }
 }
