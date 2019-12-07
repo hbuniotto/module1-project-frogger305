@@ -1,9 +1,9 @@
 class Obstacle extends Component {
-    constructor(game, y) {
+    constructor(game, y, x) {
         super(game);
         this.game = game;
         this.y = y;
-        this.x = - 100; // SET MANUALLY TO LEFT CORNER
+        this.x = x;
         this.width = 100;
         this.height = 50;
         this.img = new Image();
@@ -20,10 +20,11 @@ class Obstacle extends Component {
         );
     }
 
-    move() {
-        if (10 === 10 && Math.floor(Math.random() % 1) === 0) {
+    move() { // DETERMINE IF THE OBSTACLES WILL MOVE FROM L>R OR R>L
+        if (Math.floor(Math.random() % 2) === 0) {
+            if (this.x == -100)
             this.x += 2;
-            // call function to check if collision
         }
+        else this.x -= 2
     }
-};
+}

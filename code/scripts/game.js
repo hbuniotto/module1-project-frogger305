@@ -37,20 +37,33 @@ class Game {
                         this.obstacles.splice(i, 1);
                     }
                 }
+                // this.checkCollision();
             }, 1000 / 100);
         }
         
         this.createObstacles = function() {
-            const startingPositions = [40, 100, 155, 225, 280, 345, 400, 460, 520, 580];
-            if (Math.floor(Math.random() * 20) % 2 === 0) {
-                let startingPos = startingPositions[Math.floor(Math.random() * startingPositions.length)];
-                this.obstacles.push(new Obstacle(this, startingPos));
+            const startingHeight = [40, 100, 155, 225, 280, 345, 400, 460, 520, 580];
+            if (Math.floor(Math.random() * 25) % 2 === 0) {
+            let startingH = startingHeight[Math.floor(Math.random() * startingHeight.length)];
+            let startingOrigin = 0;
+                if (startingH == 40, 155, 280, 400, 520) {
+                     startingOrigin = -100; // SETS STARTING ORIGIN TO LEFT SIDE OF THE SCREEN
+                }
+                else startingOrigin = 1450; // SETS STARTING ORIGIN TO RIGHT SIDE OF THE SCREEN
+            this.obstacles.push(new Obstacle(this, startingH, startingOrigin));
             }
-    
-            setTimeout(() => {
-                this.createObstacles();
-            }, 100); // SETS THE AMOUNT OF TIME TO WAIT BETWEEN CREATION OF OBSTACLES
         }
+
+        // this.obstacleDirection = function() {
+        //     const startingHeight = [40, 100, 155, 225, 280, 345, 400, 460, 520, 580];
+        //     if (Math.floor(Math.random() * 20) % 2 === 0) {
+        //         let startingH = startingHeight[Math.floor(Math.random() * startingHeight.length)];
+        //         this.obstacles.push(new Obstacle(this, startingH));
+        //     }
+    
+        setTimeout(() => {
+            this.createObstacles();
+        }, 300); // SETS THE AMOUNT OF TIME TO WAIT BETWEEN CREATION OF OBSTACLES
         
         this.drawBackground = function() { // THIS WILL BE A ROAD BACKGROUND
             this.backgroundImg.src = "./images/road-background.jpg";
@@ -63,20 +76,20 @@ class Game {
             this.chicken.drawComponent("images/chicken.gif");
         }
 
-        this.checkCollision = function () {
-                let collisionRight = ((this.obstacles[i].x + chicken.width - 20 >= obstacles.x  ) && (chicken.x <= obstacles.x));
-                let collisionLeft = ((chicken.x + 20 <= obstacles.x + obstacles.width) && (chicken.x + chicken.width >= obstacles.x + obstacles.width));
-                let collisionTop = ((chicken.y + 20 <= obstacles.y + obstacles.height) && (chicken.y + chicken.height >= obstacles.y + obstacles.height));
-                let ccollisionBottom = ((chicken.y + chicken.height - 20 >= obstacles.y) && (chicken.y <= obstacles.y));
+        // this.checkCollision = function () {
+        //         let collisionRight = ((this.obstacles[i].x + chicken.width - 20 >= obstacles.x  ) && (chicken.x <= obstacles.x));
+        //         let collisionLeft = ((chicken.x + 20 <= obstacles.x + obstacles.width) && (chicken.x + chicken.width >= obstacles.x + obstacles.width));
+        //         let collisionTop = ((chicken.y + 20 <= obstacles.y + obstacles.height) && (chicken.y + chicken.height >= obstacles.y + obstacles.height));
+        //         let ccollisionBottom = ((chicken.y + chicken.height - 20 >= obstacles.y) && (chicken.y <= obstacles.y));
                 
-                if ((collisionRight || collisionLeft) && (collisionTop || ccollisionBottom)) 
-                // return true;
-                console.log ('crash')
-                return false;
-              }
+        //         if ((collisionRight || collisionLeft) && (collisionTop || ccollisionBottom)) 
+        //         // return true;
+        //         console.log ('crash')
+        //         return false;
+        //       }
 
         this.clear = function() {
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         }
     }
-};
+}
