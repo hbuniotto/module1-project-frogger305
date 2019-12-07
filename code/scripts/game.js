@@ -30,20 +30,20 @@ class Game {
                 this.drawMainCharacters();
                 this.chicken.move();
                 for (let i = 0; i < this.obstacles.length; i++) {
-                    this.obstacles[i].move(); 
+                    this.moveMethod(i); 
                     this.obstacles[i].draw();
                     // this.chicken.crashCollision(this.obstacles[i]);
                     if (this.obstacles[i].x > 1450 || this.obstacles[i].x < -100) {
-                        this.obstacles.splice(i, 1, this.createObstacles());
+                        this.obstacles.splice(1, i, this.createObstacles());
                     }
                 }
-                // this.checkCollision();
-            }, 1000 / 100);
+                this.checkCollision();
+            }, 0);
         }
        
-        this.createObstacles = () => {
+        this.createObstacles = () => { // SHOULD BE SELF-CALLING
             const startingHeight = [40, 100, 155, 225, 280, 345, 400, 460, 520, 580];
-            if (Math.floor(Math.random() * 20) % 2 === 0) {
+            if (Math.floor(Math.random()) % 2 === 0) { // BELIEVE THE ISSUE HAS TO DO WITH NOT ENOUGH RANDOMIZATION
             let startingH = startingHeight[Math.floor(Math.random() * startingHeight.length)];
             let startingOrigin = 1450;
                 if ([40, 155, 280, 400, 520].includes(startingH)) {
@@ -51,6 +51,7 @@ class Game {
                 }
                 this.obstacles.push(new Obstacle(this, startingH, startingOrigin));
             }
+            createObstacles() // ATTEMPT TO CALL THE FUNCTION MULTIPLE TIMES
         }
 
         // this.obstacleDirection = function() {
@@ -62,7 +63,7 @@ class Game {
     
         setTimeout(() => {
             this.createObstacles();
-        }, 300); // SETS THE AMOUNT OF TIME TO WAIT BETWEEN CREATION OF OBSTACLES
+        }, 500); // SETS THE AMOUNT OF TIME TO WAIT BETWEEN CREATION OF OBSTACLES
         
         this.drawBackground = function() { // THIS WILL BE A ROAD BACKGROUND
             this.backgroundImg.src = "./images/road-background.jpg";
@@ -90,5 +91,10 @@ class Game {
         this.clear = function() {
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         }
+    }
+
+    moveMethod(i) {
+        this.obstacles[i].move();
+        this.createObstacles();
     }
 }
