@@ -3,6 +3,7 @@ class Obstacle extends Component {
         super(game);
         this.game = game;
         this.y = y;
+        this.change = x == -100 ? 2 : -2 // CHECKS THE ORIGIN AND SETS INCREMENT / DECREMENT
         this.x = x;
         this.width = 100;
         this.height = 50;
@@ -17,14 +18,17 @@ class Obstacle extends Component {
             this.y,
             this.width,
             this.height
-        );
+            );
+        Obstacle();
     }
 
     move() { // DETERMINE IF THE OBSTACLES WILL MOVE FROM L>R OR R>L
         if (Math.floor(Math.random() % 2) === 0) {
-            if (this.x == -100)
-            this.x += 2;
+            this.x += this.change
         }
-        else this.x -= 2
+        //     if (this.x == -100)
+        //     this.x += 2;
+        // }
+        // else this.x -= 2
     }
 }

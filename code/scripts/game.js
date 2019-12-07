@@ -33,24 +33,23 @@ class Game {
                     this.obstacles[i].move(); 
                     this.obstacles[i].draw();
                     // this.chicken.crashCollision(this.obstacles[i]);
-                    if (this.obstacles[i].y > 700) {
-                        this.obstacles.splice(i, 1);
+                    if (this.obstacles[i].x > 1450 || this.obstacles[i].x < -100) {
+                        this.obstacles.splice(i, 1, this.createObstacles());
                     }
                 }
                 // this.checkCollision();
             }, 1000 / 100);
         }
-        
-        this.createObstacles = function() {
+       
+        this.createObstacles = () => {
             const startingHeight = [40, 100, 155, 225, 280, 345, 400, 460, 520, 580];
-            if (Math.floor(Math.random() * 25) % 2 === 0) {
+            if (Math.floor(Math.random() * 20) % 2 === 0) {
             let startingH = startingHeight[Math.floor(Math.random() * startingHeight.length)];
-            let startingOrigin = 0;
-                if (startingH == 40, 155, 280, 400, 520) {
+            let startingOrigin = 1450;
+                if ([40, 155, 280, 400, 520].includes(startingH)) {
                      startingOrigin = -100; // SETS STARTING ORIGIN TO LEFT SIDE OF THE SCREEN
                 }
-                else startingOrigin = 1450; // SETS STARTING ORIGIN TO RIGHT SIDE OF THE SCREEN
-            this.obstacles.push(new Obstacle(this, startingH, startingOrigin));
+                this.obstacles.push(new Obstacle(this, startingH, startingOrigin));
             }
         }
 
