@@ -18,7 +18,7 @@ class Game {
             this.x = 0;
             this.y = 0;
             this.start();
-            // this.createObstacles();
+            this.createObstacles();
         }
         
         this.start = function() {
@@ -51,13 +51,10 @@ class Game {
                 }
                 this.obstacles.push(new Obstacle(this, startingH, startingOrigin));
             }
+            console.log(startingOrigin)
             // this.createObstacles() // ATTEMPT TO CALL THE FUNCTION MULTIPLE TIMES
         }
 
-        // createObstacles() TO BE USED TO RANDOMLY GENERATE OBSTACLES
-        // NEW FUNCTION TO DETERMINE WHERE THE OBSTACLES ORIGINATES FROM
-        // NEW FUNCTION TO DETERMINE THE FREQUENCY OF EACH OBSTACLE BEING CREATED
-        
         setTimeout(() => {
             this.createObstacles();
         }, 1000 / 100); // SETS THE AMOUNT OF TIME TO WAIT BETWEEN CREATION OF OBSTACLES
@@ -99,6 +96,6 @@ class Game {
 
     moveMethod(i) {
         this.obstacles[i].move();
-        // this.createObstacles();
+        this.createObstacles();
     }
 }

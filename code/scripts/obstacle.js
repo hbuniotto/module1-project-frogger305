@@ -1,11 +1,11 @@
 class Obstacle extends Component {
-    constructor(game, y, origin) {
+    constructor(game, y, x) {
         super(game);
         this.game = game;
         this.y = y;
-        this.origin = x == -100
-        // this.origin = x == -100 ? 2 : -2 // CHECKS THE ORIGIN AND SETS INCREMENT / DECREMENT ON X
         this.x = x;
+        this.change = x == -100 ? 2 : -2  // CHECKS THE ORIGIN AND SETS INCREMENT / DECREMENT ON X
+        // this.origin = undefined;
         this.width = 100;
         this.height = 50;
         this.img = new Image();
@@ -24,14 +24,19 @@ class Obstacle extends Component {
 
     move() { // DETERMINE IF THE OBSTACLES WILL MOVE FROM L>R OR R>L
         if (Math.floor(Math.random() % 2) === 0) {
-            if (this.origin == -100) {
-                this.x += 1
-            }
-            else this.x -= 1
+            this.x += this.change
         }
+        
+           
+        //     if (this.change == -100) {
+        //         this.x += 1
+        //     }
+        //     else this.x -= 1
+        // } this.move
         //     if (this.x == -100)
         //     this.x += 2;
         // }
         // else this.x -= 2
+    // }
     }
 }
