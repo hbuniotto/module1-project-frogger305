@@ -1,9 +1,10 @@
 class Obstacle extends Component {
-    constructor(game, y, x) {
+    constructor(game, y, origin) {
         super(game);
         this.game = game;
         this.y = y;
-        this.change = x == -100 ? 2 : -2 // CHECKS THE ORIGIN AND SETS INCREMENT / DECREMENT ON X
+        this.origin = x == -100
+        // this.origin = x == -100 ? 2 : -2 // CHECKS THE ORIGIN AND SETS INCREMENT / DECREMENT ON X
         this.x = x;
         this.width = 100;
         this.height = 50;
@@ -23,7 +24,10 @@ class Obstacle extends Component {
 
     move() { // DETERMINE IF THE OBSTACLES WILL MOVE FROM L>R OR R>L
         if (Math.floor(Math.random() % 2) === 0) {
-            this.x += this.change
+            if (this.origin == -100) {
+                this.x += 1
+            }
+            else this.x -= 1
         }
         //     if (this.x == -100)
         //     this.x += 2;

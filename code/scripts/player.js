@@ -17,12 +17,12 @@ class Player extends Component {
                     case 87:
                         if (this.y >= 5) this.y -= 60;
                         break;
-                    case 39: // RIGHT D SHOULD GO RIGHT IT'S GOING DOWN
-                    case 83:
+                    case 39: // RIGHT
+                    case 68:
                         if (this.x <= 1300 - this.width) this.x += 60; // HOW FAR RIGHT THE PLAYER CAN MOVE
                         break;
-                    case 40: // DOWN S SHOULD GO DOWN IT'S GOING RIGHT
-                    case 68:
+                    case 40: // DOWN
+                    case 83:
                         if (this.y <= 650 - this.height) this.y += 60;
                         break;
                 }

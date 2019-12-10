@@ -18,7 +18,7 @@ class Game {
             this.x = 0;
             this.y = 0;
             this.start();
-            this.createObstacles();
+            // this.createObstacles();
         }
         
         this.start = function() {
@@ -34,10 +34,10 @@ class Game {
                     this.obstacles[i].draw();
                     // this.chicken.crashCollision(this.obstacles[i]);
                     if (this.obstacles[i].x > 1450 || this.obstacles[i].x < -100) {
-                        this.obstacles.splice(1, i, this.createObstacles());
+                        this.obstacles.splice(1, i);
                     }
                 }
-                this.checkCollision();
+                // this.checkCollision(); // COLLISION IS COMMENTED OUT
             }, 0);
         }
        
@@ -51,23 +51,27 @@ class Game {
                 }
                 this.obstacles.push(new Obstacle(this, startingH, startingOrigin));
             }
-            createObstacles() // ATTEMPT TO CALL THE FUNCTION MULTIPLE TIMES
+            // this.createObstacles() // ATTEMPT TO CALL THE FUNCTION MULTIPLE TIMES
         }
 
-        // this.obstacleDirection = function() {
-        //     const startingHeight = [40, 100, 155, 225, 280, 345, 400, 460, 520, 580];
-        //     if (Math.floor(Math.random() * 20) % 2 === 0) {
-        //         let startingH = startingHeight[Math.floor(Math.random() * startingHeight.length)];
-        //         this.obstacles.push(new Obstacle(this, startingH));
-        //     }
-    
+        // createObstacles() TO BE USED TO RANDOMLY GENERATE OBSTACLES
+        // NEW FUNCTION TO DETERMINE WHERE THE OBSTACLES ORIGINATES FROM
+        // NEW FUNCTION TO DETERMINE THE FREQUENCY OF EACH OBSTACLE BEING CREATED
+        
         setTimeout(() => {
             this.createObstacles();
-        }, 500); // SETS THE AMOUNT OF TIME TO WAIT BETWEEN CREATION OF OBSTACLES
+        }, 1000 / 100); // SETS THE AMOUNT OF TIME TO WAIT BETWEEN CREATION OF OBSTACLES
+        
+                // this.obstacleDirection = function() {
+                //     const startingHeight = [40, 100, 155, 225, 280, 345, 400, 460, 520, 580];
+                //     if (Math.floor(Math.random() * 20) % 2 === 0) {
+                //         let startingH = startingHeight[Math.floor(Math.random() * startingHeight.length)];
+                //         this.obstacles.push(new Obstacle(this, startingH));
+                //     }
         
         this.drawBackground = function() { // THIS WILL BE A ROAD BACKGROUND
             this.backgroundImg.src = "./images/road-background.jpg";
-            // this.backgroundImg.addEventListener( 'load', function() {
+            // this.backgroundImg.addEventListener( 'load', function() { // WHY IS THIS BREAKING CODE?
             this.ctx.drawImage( this.backgroundImg, this.x, this.y, this.width, this.height )
             // })
         }
@@ -88,13 +92,13 @@ class Game {
         //         return false;
         //       }
 
-        this.clear = function() {
+        this.clear = () => {
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         }
     }
 
     moveMethod(i) {
         this.obstacles[i].move();
-        this.createObstacles();
+        // this.createObstacles();
     }
 }
