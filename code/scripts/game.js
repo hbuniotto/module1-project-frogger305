@@ -4,18 +4,18 @@ class Game {
     this.ctx = this.canvas.getContext('2d');
     this.width = this.canvas.width = 1350;
     this.height = this.canvas.height = 700;
-    this.player = new Player(this, 625, 628, 50, 50); // ADJUST FROG POSITION AND SIZE
+    this.player = new Player(this, 640, 628, 60, 60); // ADJUST FROG POSITION AND SIZE
     this.backgroundImg = new Image();
     this.x = 0;
     this.y = 0;
     this.score = 0;
     this.obstacles = [];
   }
+
   start = function() {
     setInterval(() => {
       this.clear();
       this.drawBackground();
-      //I switched chicken to player.
       this.player.drawChicken('images/chicken.gif');
       this.player.move();
       this.obstacles.forEach(ob => {
@@ -25,22 +25,21 @@ class Game {
         this.createObstacles();
       }
       this.player.checkCollision(this.obstacles); // COLLISION
-    }, 30);
+    }, 30); //HOW FAST THE OBSTACLES GO
   };
 
-  //
   createObstacles = () => {
     let startingOrigin;
-    const startingHeight = [40, 100, 155, 225, 280, 345, 400, 460, 520, 580];
+    const startingHeight = [30, 90, 150, 210, 270, 330, 390, 450, 510, 570];
     for (let i = 0; i < startingHeight.length; i++) {
-      if (Math.floor(Math.random() * 10.2 + 1.3) % 2 === 0) {
+      if (Math.floor(Math.random() * 10 + 2) % 2 === 0) {
         let direction;
         switch (startingHeight[i]) {
-          case 40:
-          case 155:
-          case 280:
-          case 400:
-          case 520:
+          case 30:
+          case 150:
+          case 270:
+          case 390:
+          case 510:
             startingOrigin = -Math.random() * 300 - 150;
             direction = 'RIGHT';
             break;

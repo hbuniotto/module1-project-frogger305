@@ -25,7 +25,7 @@ class Player {
             break;
           case 39: // RIGHT
           case 68:
-            if (this.x <= 1300 - this.width) this.x += 60; // HOW FAR RIGHT THE PLAYER CAN MOVE
+            if (this.x <= 1300 - this.width) this.x += 50; // HOW FAR RIGHT THE PLAYER CAN MOVE
             break;
           case 40: // DOWN
           case 83:
@@ -60,6 +60,7 @@ class Player {
         (collisionTop || collisionBottom)
       ) {
         //here something happens
+        // alert('DEAD')
         console.log('crash');
         return true;
       }
