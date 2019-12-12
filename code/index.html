@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <link rel="stylesheet" href="style.css" />
-        <title>FROGGER 305</title>
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>FROGGER 305</title>
+  </head>
+  <body>
     <nav>
-      <img src="./images/frogger-logo.png"/>
-        <ul>
-                <li id="start-button">START GAME</li>
-        </ul>
+      <img src="./images/frogger-logo.png" />
+      <ul>
+        <li id="start-button">START GAME</li>
+      </ul>
     </nav>
-    <body>
-        <div id="game-board">
-                <!-- <img src="./images/frogger-start-background.png" width="400" id="start-background">
+    <h1 id="title">Frogger</h1>
+    <div id="game-board">
+      <!-- <img src="./images/frogger-start-background.png" width="400" id="start-background">
                 <img src="./images/press-to-start.gif" width="300" id="start-button"> -->
-            <canvas id="canvas" width="1350" height="700"></canvas>
-        </div>
+      <canvas id="canvas"></canvas>
+    </div>
 
-        <script type="text/javascript" src="./scripts/components.js"></script>
-        <script type="text/javascript" src="./scripts/obstacle.js"></script>
-        <script type="text/javascript" src="./scripts/player.js"></script>
-        <script type="text/javascript" src="./scripts/game.js"></script>
-        <script type="text/javascript" src="./scripts/script.js"></script>
-    </body>
+    <script type="text/javascript" src="./scripts/components.js"></script>
+    <script type="text/javascript" src="./scripts/obstacle.js"></script>
+    <script type="text/javascript" src="./scripts/player.js"></script>
+    <script type="text/javascript" src="./scripts/game.js"></script>
+    <script type="text/javascript" src="./scripts/script.js"></script>
+  </body>
 </html>
