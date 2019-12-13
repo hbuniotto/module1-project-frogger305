@@ -16,25 +16,65 @@ class Game {
     setInterval(() => {
       this.clear();
       this.drawBackground();
+      //I switched chicken to player.
       this.player.drawChicken('images/chicken.gif');
       this.player.move();
-      this.obstacles.forEach(ob => {
-        ob.update(this.obstacles);
-      });
-      if (this.obstacles.length <= 3) {
-        this.createObstacles();
-      }
+      this.updateObstacles(this.obstacles);
       this.player.checkCollision(this.obstacles); // COLLISION
-    }, 30); //HOW FAST THE OBSTACLES GO
+    }, 30);
   };
 
+  //
   createObstacles = () => {
     let startingOrigin;
-    const startingHeight = [30, 90, 150, 210, 270, 330, 390, 450, 510, 570];
-    for (let i = 0; i < startingHeight.length; i++) {
+    // const startingHeight = [30, 90, 150, 210, 270, 330, 390, 450, 510, 570];
+    const lanes = [
+      {
+        yPosition: 30,
+        speed: 4
+      },
+      {
+        yPosition: 90,
+        speed: 6
+      },
+      {
+        yPosition: 150,
+        speed: 10
+      },
+      {
+        yPosition: 210,
+        speed: 11
+      },
+      {
+        yPosition: 270,
+        speed: 13
+      },
+      {
+        yPosition: 330,
+        speed: 11
+      },
+      {
+        yPosition: 390,
+        speed: 9
+      },
+      {
+        yPosition: 450,
+        speed: 7
+      },
+      {
+        yPosition: 510,
+        speed: 5
+      },
+      {
+        yPosition: 570,
+        speed: 3
+      },
+    ];
+
+    for (let i = 0; i < lanes.length; i++) {
       if (Math.floor(Math.random() * 10 + 2) % 2 === 0) {
         let direction;
-        switch (startingHeight[i]) {
+        switch (lanes[i].yPosition) { // ACCESSING THE Y POSITION OF THE OBJECT OF EACH LANE
           case 30:
           case 150:
           case 270:
@@ -49,13 +89,16 @@ class Game {
             direction = 'LEFT';
             break;
         }
-        if (this.obstacles.length < 10) {
-          this.obstacles.push(
-            new Obstacle(this, startingHeight[i], startingOrigin, direction)
-          );
-        }
+
+        this.obstacles.push(
+          new Obstacle(this, lanes[i].yPosition, startingOrigin, direction, lanes[i].speed)
+        );
       }
     }
+
+    setTimeout(() => {
+      this.createObstacles();
+    }, 3000); // SET INTERVAL BETWEEN CREATING OBSTACLES
   };
 
   drawBackground = function() {
@@ -75,5 +118,28 @@ class Game {
 
   clear = () => {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  };
+
+  updateObstacles = (obstacles) => {
+    // console.log('Output for obstacles', obstacles);
+    for (let i = 0; i < obstacles.length; i++) {
+      obstacles[i].draw();
+      // this.vx = Math.random() * 2 < 0.4 ? 1 : Math.random() * 2; // replaced
+      //to move obstacles to right or left
+      if (obstacles[i].dir === 'RIGHT') obstacles[i].x += obstacles[i].vx;
+      if (obstacles[i].dir === 'LEFT') obstacles[i].x += -obstacles[i].vx;
+      //to return obstacles back to original or about that location which they had
+      if (
+        (obstacles[i].dir === 'RIGHT' && obstacles[i].x >= this.width) ||
+        (obstacles[i].dir === 'LEFT' && obstacles[i].x < - obstacles[i].width)
+      ) {
+        // obstacles[i].x *= -this.vx;
+        obstacles.splice(i, 1);
+      }
+      //   if (obstacles[i].dir === 'LEFT' && obstacles[i].x < -this.width) {
+      //     // obstacles[i].x *= -12;
+      //     obstacles.splice(i, 1);
+      //   }
+    }
   };
 }

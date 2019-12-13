@@ -1,9 +1,12 @@
 window.onload = function() {
-  document.getElementById('start-button').onclick = function() {
-    title.remove();
-    const myGame = new Game();
+  const myGame = new Game();
     myGame.start();
     myGame.createObstacles();
+    document.getElementById("game-board").style.display = 'none';
+
+  document.getElementById('start-button').onclick = function() {
+    title.remove();
+    document.getElementById("game-board").style.display = 'block';
   };
 };
 
