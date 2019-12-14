@@ -16,7 +16,6 @@ class Game {
     setInterval(() => {
       this.clear();
       this.drawBackground();
-      //I switched chicken to player.
       this.player.drawChicken('images/chicken.gif');
       this.player.move();
       this.updateObstacles(this.obstacles);
@@ -86,13 +85,13 @@ class Game {
               Math.random() * 1400 < 1300 ? 1400 : Math.random() * 1400;
             direction = 'LEFT';
             break;
-        }
+        };
 
         this.obstacles.push(
           new Obstacle(this, lanes[i].yPosition, startingOrigin, direction, lanes[i].speed)
         );
       }
-    }
+    };
 
     setTimeout(() => {
       this.createObstacles();
@@ -139,5 +138,5 @@ class Game {
       //     obstacles.splice(i, 1);
       //   }
     }
-  };
+  }
 }
