@@ -1,10 +1,12 @@
 body {
   text-align: center;
 }
+
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 10px;
   height: 5vw;
   width: 1350px;
 }
@@ -20,7 +22,7 @@ nav > ul {
   width: 13vw;
 }
 nav > ul > li {
-  background-color: rgb(49, 68, 88);
+  background-color:#DE4A54;
   color: whitesmoke;
   font: arial;
   font-size: 18px;

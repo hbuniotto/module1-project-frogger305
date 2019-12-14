@@ -58,12 +58,13 @@ class Player {
       if (
         (collisionRight || collisionLeft) &&
         (collisionTop || collisionBottom)
-      ) {
+      ); 
+      {
         //here something happens
-        // alert('DEAD')
+        // alert('GAME OVER')
         console.log('crash');
         return true;
       }
     }
-  };
+  }
 }

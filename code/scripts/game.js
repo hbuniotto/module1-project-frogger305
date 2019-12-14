@@ -21,53 +21,51 @@ class Game {
       this.player.move();
       this.updateObstacles(this.obstacles);
       this.player.checkCollision(this.obstacles); // COLLISION
-    }, 30);
+    }, 10);
   };
 
-  //
   createObstacles = () => {
     let startingOrigin;
-    // const startingHeight = [30, 90, 150, 210, 270, 330, 390, 450, 510, 570];
     const lanes = [
       {
         yPosition: 30,
-        speed: 4
+        speed: 3
       },
       {
         yPosition: 90,
-        speed: 6
+        speed: 3
       },
       {
         yPosition: 150,
-        speed: 10
+        speed: 3
       },
       {
         yPosition: 210,
-        speed: 11
+        speed: 6
       },
       {
         yPosition: 270,
-        speed: 13
+        speed: 3
       },
       {
         yPosition: 330,
-        speed: 11
+        speed: 6
       },
       {
         yPosition: 390,
-        speed: 9
+        speed: 3
       },
       {
         yPosition: 450,
-        speed: 7
+        speed: 3
       },
       {
         yPosition: 510,
-        speed: 5
+        speed: 3
       },
       {
         yPosition: 570,
-        speed: 3
+        speed: 7
       },
     ];
 
@@ -98,7 +96,7 @@ class Game {
 
     setTimeout(() => {
       this.createObstacles();
-    }, 3000); // SET INTERVAL BETWEEN CREATING OBSTACLES
+    }, 1000); // SET INTERVAL BETWEEN CREATING OBSTACLES (GAME DIFFICULTY)
   };
 
   drawBackground = function() {

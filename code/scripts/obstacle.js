@@ -14,7 +14,7 @@ class Obstacle {
       'images/red_car.png',
       'images/blue_car.png',
       'images/motorcycle.png',
-      'images/cafetera.gif'
+      'images/turtle.png'
     ];
     this.img.src = arrayOfImages[Math.floor(Math.random() * arrayOfImages.length)];
   }
