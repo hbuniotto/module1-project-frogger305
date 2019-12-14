@@ -2,7 +2,7 @@ class Game {
   constructor() {
     this.canvas = document.getElementById('canvas');
     this.ctx = this.canvas.getContext('2d');
-    this.width = this.canvas.width = 1350;
+    this.width = this.canvas.width = 1420;
     this.height = this.canvas.height = 700;
     this.player = new Player(this, 640, 628, 60, 60); // ADJUST FROG POSITION AND SIZE
     this.backgroundImg = new Image();

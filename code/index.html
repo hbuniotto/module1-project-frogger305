@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://use.fontawesome.com/1fb0eb3889.js"></script>
     <link rel="stylesheet" href="style.css" />
     <title>FROGGER 305</title>
   </head>
@@ -14,21 +15,23 @@
     <div id="game-board">
       <canvas id="canvas"></canvas>
     </div>
-    <div id="title">
-        <div class="start-screen">
-          <img src="./images/frogger-start-background.png" id="frog"/>
+      <div id="title">
+        <div id="left-div">
+          <img src="./images/frogger-start-background.png"/>
         </div>
-        <div class="start-screen">
-            <h4>
-                Game Instructions:
-            </h4>
+        <div>`
+          <img id="miami-neon" src= "./images/miami-background.gif"/>
+        </div>
+        <div id="right-div">
+          <h2>
+              Game Instructions
+          </h2>
           <p>
-            <ul>
-                Use the cursor to move in 4 directions
-            </ul>
-            
-          </p>
-          <img src="./images/press-to-start.gif" id="start-button"/>
+            Use the cursor to move the player<br>
+            Avoid incoming traffic<br>
+            Don't get killed
+          </p >
+          <img id="start-button" src="./images/press-to-start.gif"/>
         </div>
       </div>
     <script type="text/javascript" src="./scripts/obstacle.js"></script>

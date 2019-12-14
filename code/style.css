@@ -22,7 +22,7 @@ nav > ul {
   display: flex;
   width: 13vw;
 }
-nav > ul > li {
+/* nav > ul > li { USED TO BE START BUTTON
   background-color:#DE4A54;
   color: whitesmoke;
   font: arial;
@@ -32,20 +32,35 @@ nav > ul > li {
   border: 2;
   margin-bottom: 15px;
   margin-right: 15px;
-}
+} */
 
 #title {
-  background-color: #DE4A54;
   display: flex;
+  /* background-color: #DE4A54;   */
+  /* background-image: url("./images/miami-background.gif"); */
   /* width: 1350px;   */
+  height: 700px;
+  background-color: #FAAC1A;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #title > div {
   width: 1350px;
 }
 
-.start-screen {
-height: 700px;}
+#miami-neon { /*CAN'T MAKE IT GO BELOW THE LOGO*/
+  padding: 50px;
+}
+
+#left-div > img {
+  margin-top:
+}
+
+.start-screen > p {
+  font-size: 30px;
+  text-align: left;
+  margin-left: 130px;
+}
 
 #start-button {
   width: 200px
