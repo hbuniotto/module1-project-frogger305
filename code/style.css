@@ -3,19 +3,20 @@ body {
 }
 
 nav {
+  background-color: #F7AA1C ;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
-  height: 5vw;
-  width: 1350px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  height: 7vw;
+  width: 1424px;
 }
 
 nav > img {
-  width: 7vw;
-  margin-bottom: 15px;
-  margin-left: 15px;
+  width: 6vw;
+  margin-left: 12px;
   padding: 14px;
+  
 }
 
 nav > ul {
@@ -40,7 +41,7 @@ nav > ul {
   /* background-image: url("./images/miami-background.gif"); */
   /* width: 1350px;   */
   height: 700px;
-  background-color: #FAAC1A;
+  background-color: #EC1669;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -49,22 +50,30 @@ nav > ul {
 }
 
 #miami-neon { /*CAN'T MAKE IT GO BELOW THE LOGO*/
-  padding: 50px;
+float: left;}
+
+#left-div {
+  width: 650px;
+  margin-top: 90px;
 }
 
-#left-div > img {
-  margin-top:
+#right-div {
+  width: 650px;
+  margin-top: 150px;
+  font-size: 25px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+  /* margin-left: 80px; */
 }
 
-.start-screen > p {
-  font-size: 30px;
-  text-align: left;
-  margin-left: 130px;
+#right-div > p + p {
+  margin-top: 10px;;
 }
 
 #start-button {
   width: 200px
 }
+
 /* 
 .rotate {
   transform: rotate(180deg);

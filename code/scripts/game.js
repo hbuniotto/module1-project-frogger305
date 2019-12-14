@@ -2,7 +2,7 @@ class Game {
   constructor() {
     this.canvas = document.getElementById('canvas');
     this.ctx = this.canvas.getContext('2d');
-    this.width = this.canvas.width = 1420;
+    this.width = this.canvas.width = 1424;
     this.height = this.canvas.height = 700;
     this.player = new Player(this, 640, 628, 60, 60); // ADJUST FROG POSITION AND SIZE
     this.backgroundImg = new Image();
@@ -19,7 +19,7 @@ class Game {
       this.player.drawChicken('images/chicken.gif');
       this.player.move();
       this.updateObstacles(this.obstacles);
-      this.player.checkCollision(this.obstacles); // COLLISION
+      this.player.checkCollision(this.obstacles);
     }, 10);
   };
 
@@ -28,43 +28,43 @@ class Game {
     const lanes = [
       {
         yPosition: 30,
-        speed: 3
+        speed: 9
       },
       {
         yPosition: 90,
-        speed: 3
+        speed: 7
       },
       {
         yPosition: 150,
-        speed: 3
+        speed: 8
       },
       {
         yPosition: 210,
-        speed: 6
+        speed: 7
       },
       {
         yPosition: 270,
-        speed: 3
+        speed: 9
       },
       {
         yPosition: 330,
-        speed: 6
+        speed: 5
       },
       {
         yPosition: 390,
-        speed: 3
+        speed: 7
       },
       {
         yPosition: 450,
-        speed: 3
+        speed: 5
       },
       {
         yPosition: 510,
-        speed: 3
+        speed: 4
       },
       {
         yPosition: 570,
-        speed: 7
+        speed: 3
       },
     ];
 
