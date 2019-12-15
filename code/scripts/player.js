@@ -60,7 +60,7 @@ class Player {
         (collisionTop || collisionBottom)
       ) {
         //here something happens
-        // alert('GAME OVER')
+        alert('GAME OVER')
         console.log('crash');
         return true;
         
