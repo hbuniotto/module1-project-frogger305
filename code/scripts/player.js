@@ -6,6 +6,8 @@ class Player {
     this.width = w;
     this.height = h;
     this.img = new Image();
+    this.checkIfWin = false;
+    this.checkIfCollision = false;
   }
   
   move() {
@@ -43,6 +45,9 @@ class Player {
   }
 
   checkCollision = function(obstacles) {
+    if (this.checkIfCollision) {
+      return;
+    }
     for (let i = 0; i < obstacles.length; i++) {
       let obstacle = obstacles[i];
       let collisionRight =
@@ -59,12 +64,39 @@ class Player {
         (collisionRight || collisionLeft) &&
         (collisionTop || collisionBottom)
       ) {
-        //here something happens
-        alert('GAME OVER')
-        console.log('crash');
-        return true;
-        
+        this.checkIfCollision = true;
+        setTimeout (() => { 
+          this.checkIfCollision = false;
+          this.game.lives--;
+          this.x = 640; // SETS PLAYER BACK TO STARTING POSITION
+          this.y = 628;
+          // this.game.obstacles = [];
+          if (this.game.lives === 0) {
+            this.game.level = 1;
+            this.game.lives = 3;
+            alert('GAME OVER MARICA ☠');
+          }
+          else alert('HIJO DE PUTA! 😡'); // MESSAGE IN SPANISH
+        }, 100);
       }
     }
+  };
+
+  checkWin = function () { // CHECKS IF WIN, INCREASES LEVEL AND LIVES, AND SETS PLAYER POSITION
+    if (this.checkIfWin ) {
+      return; // DOESN'T CONTINUE TO THE NEXT IF STATEMENT
+    }
+    if (this.y == -32) {
+      this.checkIfWin = true;
+      setTimeout (() => { 
+        this.x = 640; // SETS PLAYER BACK TO STARTING POSITION
+        this.y = 628;
+        this.checkIfWin = false;
+        this.game.lives++;
+        this.game.level++;
+        this.game.obstacles = [];
+        alert('LIFE UP!');
+      }, 100);
+    }
   }
-}
+};

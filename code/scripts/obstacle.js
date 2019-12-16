@@ -11,10 +11,13 @@ class Obstacle {
     this.img.setAttribute('class', 'rotate');
     let arrayOfImages = [
       'images/yellow_lamborguini.png',
-      'images/red_car.png',
-      'images/blue_car.png',
       'images/motorcycle.png',
-      'images/chicken.gif'
+      'images/school-bus.png',
+      'images/semi-truck.png',
+      'images/fabuloso.png',
+      'images/cuban-sandwich.png',
+      'images/bugatti-veyron.png',
+      'images/scooter.png'
     ];
     this.img.src = arrayOfImages[Math.floor(Math.random() * arrayOfImages.length)];
   }

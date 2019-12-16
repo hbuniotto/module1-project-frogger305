@@ -8,9 +8,8 @@ class Game {
     this.backgroundImg = new Image();
     this.x = 0;
     this.y = 0;
-    this.score = 0;
-    this.lives = 0;
-    this.level = 0;
+    this.lives = 3;
+    this.level = 1;
     this.obstacles = [];
   };
 
@@ -22,6 +21,7 @@ class Game {
       this.player.move();
       this.updateObstacles(this.obstacles);
       this.player.checkCollision(this.obstacles);
+      this.player.checkWin ();
     }, 10);
   };
 
@@ -30,43 +30,43 @@ class Game {
     const lanes = [
       {
         yPosition: 30,
-        speed: 5
+        speed: this.getSpeed()
       },
       {
         yPosition: 90,
-        speed: 5
+        speed: this.getSpeed()
       },
       {
         yPosition: 150,
-        speed: 5
+        speed: this.getSpeed()
       },
       {
         yPosition: 210,
-        speed: 5
+        speed: this.getSpeed()
       },
       {
         yPosition: 270,
-        speed: 5
+        speed: this.getSpeed()
       },
       {
         yPosition: 330,
-        speed: 5
+        speed: this.getSpeed()
       },
       {
         yPosition: 390,
-        speed: 5
+        speed: this.getSpeed()
       },
       {
         yPosition: 450,
-        speed: 5
+        speed: this.getSpeed()
       },
       {
         yPosition: 510,
-        speed: 5
+        speed: this.getSpeed()
       },
       {
         yPosition: 570,
-        speed: 5
+        speed: this.getSpeed()
       },
     ];
 
@@ -79,12 +79,13 @@ class Game {
           case 270:
           case 390:
           case 510:
-            startingOrigin = -Math.random() * 300 - 150;
+            // let initialX = -Math.random() * 300 - 150;
+            startingOrigin = -150;
             direction = 'RIGHT';
             break;
           default:
-            startingOrigin =
-              Math.random() * 1400 < 1300 ? 1400 : Math.random() * 1400;
+            startingOrigin = 1400;
+              // Math.random() * 1400 < 1300 ? 1400 : Math.random() * 1400;
             direction = 'LEFT';
             break;
         };
@@ -97,7 +98,7 @@ class Game {
 
     setTimeout(() => {
       this.createObstacles();
-    }, 1000); // SET INTERVAL BETWEEN CREATING OBSTACLES (GAME DIFFICULTY)
+    }, 1600); // SET INTERVAL BETWEEN CREATING OBSTACLES (GAME DIFFICULTY)
   };
 
   drawBackground = function() {
@@ -109,14 +110,12 @@ class Game {
       this.width,
       this.height
     );
-    let scoreSpan = document.getElementById('score-span');
-    scoreSpan.innerHTML = `SCORE: ${this.score}`;
-
+   
     let livesSpan = document.getElementById('lives-span');
-    livesSpan.innerHTML = `LIVES: ${this.lives}`;
+    livesSpan.innerHTML = `LIVES ${this.lives}`;
 
     let levelSpan = document.getElementById('level-span');
-    levelSpan.innerHTML = `LEVEL: ${this.level}`;
+    levelSpan.innerHTML = `LEVEL ${this.level}`;
   };
 
   clear = () => {
@@ -144,5 +143,9 @@ class Game {
       //     obstacles.splice(i, 1);
       //   }
     }
+  }
+
+  getSpeed = function () {
+    return this.level * 2 + (Math.floor(Math.random() * this.level * 1.2));
   }
 }
