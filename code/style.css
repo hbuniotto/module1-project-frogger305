@@ -4,12 +4,20 @@ body {
 
 nav {
   background-color: #F7AA1C ;
-  display: flex;
+  display: inline-block;
+  text-align: left;
   align-items: center;
   margin-top: 3px;
   margin-bottom: 3px;
   height: 7vw;
   width: 1350px;
+}
+
+nav > span {
+  float: right;
+    display: inline;
+    padding: 43px;
+    margin-right: 100px;
 }
 
 nav > img {

@@ -9,3 +9,8 @@ window.onload = function() {
     document.getElementById("game-board").style.display = 'block';
   };
 };
+
+// MOVE SCORE TO NAV
+// MAKE START WITH 3 LIVES AND WIN / LOSE
+// INCREASE DIFFICULTY WITH EVERY WIN
+// MAKE 2 SETS OF OBSTACLES FOR WATER AND (4 LANES) AND LAND

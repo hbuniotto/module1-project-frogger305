@@ -9,8 +9,10 @@ class Game {
     this.x = 0;
     this.y = 0;
     this.score = 0;
+    this.lives = 0;
+    this.level = 0;
     this.obstacles = [];
-  }
+  };
 
   start = function() {
     setInterval(() => {
@@ -28,23 +30,23 @@ class Game {
     const lanes = [
       {
         yPosition: 30,
-        speed: 9
+        speed: 5
       },
       {
         yPosition: 90,
-        speed: 7
+        speed: 5
       },
       {
         yPosition: 150,
-        speed: 8
+        speed: 5
       },
       {
         yPosition: 210,
-        speed: 7
+        speed: 5
       },
       {
         yPosition: 270,
-        speed: 9
+        speed: 5
       },
       {
         yPosition: 330,
@@ -52,7 +54,7 @@ class Game {
       },
       {
         yPosition: 390,
-        speed: 7
+        speed: 5
       },
       {
         yPosition: 450,
@@ -60,11 +62,11 @@ class Game {
       },
       {
         yPosition: 510,
-        speed: 4
+        speed: 5
       },
       {
         yPosition: 570,
-        speed: 3
+        speed: 5
       },
     ];
 
@@ -99,7 +101,6 @@ class Game {
   };
 
   drawBackground = function() {
-    // THIS WILL BE A ROAD BACKGROUND
     this.backgroundImg.src = './images/road-background.jpg';
     this.ctx.drawImage(
       this.backgroundImg,
@@ -108,9 +109,14 @@ class Game {
       this.width,
       this.height
     );
-    this.ctx.fillStyle = 'red';
-    this.ctx.font = '25px Arial';
-    this.ctx.fillText(`Score: ${this.score}`, this.width / 2, 20);
+    let scoreSpan = document.getElementById('score-span');
+    scoreSpan.innerHTML = `SCORE: ${this.score}`;
+
+    let livesSpan = document.getElementById('lives-span');
+    livesSpan.innerHTML = `LIVES: ${this.lives}`;
+
+    let levelSpan = document.getElementById('level-span');
+    levelSpan.innerHTML = `LEVEL: ${this.level}`;
   };
 
   clear = () => {
