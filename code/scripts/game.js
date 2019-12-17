@@ -93,10 +93,10 @@ class Game {
         );
       }
     };
-    
+
     setTimeout(() => {
       this.createObstacles();
-    }, 1600);
+    }, 1400);
   };
 
   drawBackground = function() {
