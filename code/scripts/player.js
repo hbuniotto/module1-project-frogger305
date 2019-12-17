@@ -27,7 +27,7 @@ class Player {
             break;
           case 39: // RIGHT
           case 68:
-            if (this.x <= 1300 - this.width) this.x += 60; // HOW FAR RIGHT THE PLAYER CAN MOVE
+            if (this.x <= 1300 - this.width) this.x += 60;
             break;
           case 40: // DOWN
           case 83:
@@ -68,28 +68,27 @@ class Player {
         setTimeout (() => { 
           this.checkIfCollision = false;
           this.game.lives--;
-          this.x = 640; // SETS PLAYER BACK TO STARTING POSITION
+          this.x = 640; 
           this.y = 628;
-          // this.game.obstacles = [];
           if (this.game.lives === 0) {
             this.game.level = 1;
             this.game.lives = 3;
             alert('GAME OVER MARICA ☠');
           }
-          else alert('HIJO DE PUTA! 😡'); // MESSAGE IN SPANISH
+          else alert('HIJO DE PUTA! 😡'); 
         }, 100);
       }
     }
   };
 
-  checkWin = function () { // CHECKS IF WIN, INCREASES LEVEL AND LIVES, AND SETS PLAYER POSITION
+  checkWin = function () { 
     if (this.checkIfWin ) {
-      return; // DOESN'T CONTINUE TO THE NEXT IF STATEMENT
+      return;
     }
     if (this.y == -32) {
       this.checkIfWin = true;
       setTimeout (() => { 
-        this.x = 640; // SETS PLAYER BACK TO STARTING POSITION
+        this.x = 640; 
         this.y = 628;
         this.checkIfWin = false;
         this.game.lives++;

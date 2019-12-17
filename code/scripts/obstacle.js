@@ -3,7 +3,7 @@ class Obstacle {
     this.game = game;
     this.y = y;
     this.x = x;
-    this.vx = speed; // CHECKS THE ORIGIN AND SETS INCREMENT / DECREMENT ON X
+    this.vx = speed; 
     this.width = 120;
     this.height = 60;
     this.dir = d;

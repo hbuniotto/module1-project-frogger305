@@ -4,7 +4,7 @@ class Game {
     this.ctx = this.canvas.getContext('2d');
     this.width = this.canvas.width = 1424;
     this.height = this.canvas.height = 700;
-    this.player = new Player(this, 640, 628, 60, 60); // ADJUST FROG POSITION AND SIZE
+    this.player = new Player(this, 640, 628, 60, 60);
     this.backgroundImg = new Image();
     this.x = 0;
     this.y = 0;
@@ -73,19 +73,17 @@ class Game {
     for (let i = 0; i < lanes.length; i++) {
       if (Math.floor(Math.random() * 10 + 2) % 2 === 0) {
         let direction;
-        switch (lanes[i].yPosition) { // ACCESSING THE Y POSITION OF THE OBJECT OF EACH LANE
+        switch (lanes[i].yPosition) { 
           case 30:
           case 150:
           case 270:
           case 390:
           case 510:
-            // let initialX = -Math.random() * 300 - 150;
             startingOrigin = -150;
             direction = 'RIGHT';
             break;
           default:
             startingOrigin = 1400;
-              // Math.random() * 1400 < 1300 ? 1400 : Math.random() * 1400;
             direction = 'LEFT';
             break;
         };
@@ -95,10 +93,10 @@ class Game {
         );
       }
     };
-
+    
     setTimeout(() => {
       this.createObstacles();
-    }, 1600); // SET INTERVAL BETWEEN CREATING OBSTACLES (GAME DIFFICULTY)
+    }, 1600);
   };
 
   drawBackground = function() {
@@ -123,29 +121,20 @@ class Game {
   };
 
   updateObstacles = (obstacles) => {
-    // console.log('Output for obstacles', obstacles);
     for (let i = 0; i < obstacles.length; i++) {
       obstacles[i].draw();
-      // this.vx = Math.random() * 2 < 0.4 ? 1 : Math.random() * 2; // replaced
-      //to move obstacles to right or left
       if (obstacles[i].dir === 'RIGHT') obstacles[i].x += obstacles[i].vx;
       if (obstacles[i].dir === 'LEFT') obstacles[i].x += -obstacles[i].vx;
-      //to return obstacles back to original or about that location which they had
       if (
         (obstacles[i].dir === 'RIGHT' && obstacles[i].x >= this.width) ||
         (obstacles[i].dir === 'LEFT' && obstacles[i].x < - obstacles[i].width)
       ) {
-        // obstacles[i].x *= -this.vx;
         obstacles.splice(i, 1);
       }
-      //   if (obstacles[i].dir === 'LEFT' && obstacles[i].x < -this.width) {
-      //     // obstacles[i].x *= -12;
-      //     obstacles.splice(i, 1);
-      //   }
     }
-  }
+  };
 
   getSpeed = function () {
     return this.level * 2 + (Math.floor(Math.random() * this.level * 1.2));
   }
-}
+};
